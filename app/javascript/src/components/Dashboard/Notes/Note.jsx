@@ -1,13 +1,27 @@
 import React from "react";
 
-import { Clock } from "@bigbinary/neeto-icons";
-import { Typography, Tag, Avatar, Tooltip } from "neetoui";
+import { Clock, MenuVertical } from "@bigbinary/neeto-icons";
+import { Typography, Tag, Avatar, Tooltip, Dropdown } from "neetoui";
 
 import { calculateCreatedAgo, convertDateToWeekdayTime } from "./utils";
 
-const Note = ({ note }) => (
+const Note = ({ note, setShowDeleteAlert, setSelectedNoteIds }) => (
   <div className="m-3 w-full space-y-2 border-2 p-3 shadow-md">
-    <Typography style="h4">{note.title}</Typography>
+    <div className="flex justify-between">
+      <Typography style="h4">{note.title}</Typography>
+      <Dropdown buttonStyle="text" icon={MenuVertical} position="bottom-start">
+        <li className="m-1">Edit</li>
+        <li
+          className="m-1"
+          onClick={() => {
+            setSelectedNoteIds(note.id);
+            setShowDeleteAlert(true);
+          }}
+        >
+          Delete
+        </li>
+      </Dropdown>
+    </div>
     <Typography className="text-gray-500" style="body2">
       {note.description}
     </Typography>
