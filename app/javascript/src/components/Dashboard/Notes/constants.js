@@ -24,3 +24,56 @@ export const NOTES_TABLE_COLUMN_DATA = [
     width: "70%",
   },
 ];
+
+export const MENUBAR_BLOCKS = {
+  main: [
+    {
+      label: "All",
+      count: 13,
+      active: true,
+    },
+    {
+      label: "Users",
+      count: 13,
+      active: false,
+    },
+    {
+      label: "Leads",
+      count: 13,
+      active: false,
+    },
+    {
+      label: "Visitors",
+      count: 13,
+      active: false,
+    },
+  ],
+  segments: [
+    {
+      label: "Europe",
+      count: 13,
+    },
+    {
+      label: "Middle East",
+      count: 13,
+    },
+    {
+      label: "Asia",
+      count: 13,
+    },
+  ],
+  tags: [
+    {
+      label: "Sales",
+      count: 13,
+    },
+    {
+      label: "Finance",
+      count: 13,
+    },
+    {
+      label: "User Experience",
+      count: 13,
+    },
+  ],
+};
