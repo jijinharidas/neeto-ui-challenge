@@ -8,22 +8,24 @@ import { MENUBAR_BLOCKS } from "./constants";
 
 const MenuBar = () => {
   const [isSearchCollapsed, setIsSearchCollapsed] = useState(true);
+
   return (
     <div className="flex">
       <NeetoMenuBar showMenu title="Notes">
-        {MENUBAR_BLOCKS.main.map(menubar_block => (
+        {MENUBAR_BLOCKS.main.map(menubarBlock => (
           <NeetoMenuBar.Block
-            active={menubar_block.active}
-            count={menubar_block.count}
-            key={menubar_block.label}
-            label={menubar_block.label}
+            active={menubarBlock.active}
+            count={menubarBlock.count}
+            key={menubarBlock.label}
+            label={menubarBlock.label}
           />
         ))}
         <NeetoMenuBar.SubTitle
           iconProps={[
             {
               icon: Search,
-              onClick: () => setIsSearchCollapsed(!isSearchCollapsed),
+              onClick: () =>
+                setIsSearchCollapsed(isSearchCollapsed => !isSearchCollapsed),
             },
           ]}
         >
@@ -40,11 +42,11 @@ const MenuBar = () => {
           collapse={isSearchCollapsed}
           onCollapse={() => setIsSearchCollapsed(true)}
         />
-        {MENUBAR_BLOCKS.segments.map(menubar_block => (
+        {MENUBAR_BLOCKS.segments.map(menubarBlock => (
           <NeetoMenuBar.Block
-            count={menubar_block.count}
-            key={menubar_block.label}
-            label={menubar_block.label}
+            count={menubarBlock.count}
+            key={menubarBlock.label}
+            label={menubarBlock.label}
           />
         ))}
         <NeetoMenuBar.SubTitle
@@ -69,11 +71,11 @@ const MenuBar = () => {
             Tags
           </Typography>
         </NeetoMenuBar.SubTitle>
-        {MENUBAR_BLOCKS.tags.map(menubar_block => (
+        {MENUBAR_BLOCKS.tags.map(menubarBlock => (
           <NeetoMenuBar.Block
-            count={menubar_block.count}
-            key={menubar_block.label}
-            label={menubar_block.label}
+            count={menubarBlock.count}
+            key={menubarBlock.label}
+            label={menubarBlock.label}
           />
         ))}
       </NeetoMenuBar>

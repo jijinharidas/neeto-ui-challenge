@@ -1,13 +1,6 @@
-import dayjs from "dayjs";
-import relativeTime from "dayjs/plugin/relativeTime";
+import dayjs from "src/lib/dayjs";
 
-export const calculateCreatedAgo = date => {
-  dayjs.extend(relativeTime);
-  const createdAgo = dayjs(date).fromNow();
-  return createdAgo;
-};
+export const calculateCreatedAgo = date => dayjs(date).fromNow();
 
-export const convertDateToWeekdayTime = date => {
-  const weekdayTime = dayjs(date).format("dddd, hh:mmA");
-  return weekdayTime;
-};
+export const convertDateToWeekdayTime = date =>
+  dayjs(date).format("dddd, hh:mmA");
