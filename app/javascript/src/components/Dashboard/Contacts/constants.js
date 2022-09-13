@@ -55,14 +55,8 @@ export const CONTACTS_FORM_INITIAL_FORM_VALUES = {
   firstname: "",
   secondname: "",
   email: "",
-  role: "",
+  role: null,
 };
-
-export const CONTACTS_FORM_VALIDATION_SCHEMA = yup.object().shape({
-  firstname: yup.string().required("First name is required"),
-  lastname: yup.string().required("Second name is required"),
-  email: yup.string().required("Email is required"),
-});
 
 export const ROLES = [
   {
@@ -74,3 +68,20 @@ export const ROLES = [
     value: "non_admin",
   },
 ];
+
+export const CONTACTS_FORM_VALIDATION_SCHEMA = yup.object().shape({
+  firstname: yup.string().required("First name is required"),
+  lastname: yup.string().required("Last name is required"),
+  email: yup
+    .string()
+    .email("Email address is invalid")
+    .required("Email address is required"),
+  role: yup
+    .object()
+    .nullable()
+    .shape({
+      label: yup.string().oneOf(ROLES.map(role => role.label)),
+      value: yup.string().oneOf(ROLES.map(role => role.value)),
+    })
+    .required("Role is required"),
+});

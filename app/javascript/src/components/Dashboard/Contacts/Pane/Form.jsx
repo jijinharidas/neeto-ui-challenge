@@ -10,7 +10,7 @@ import {
   CONTACTS_FORM_INITIAL_FORM_VALUES,
 } from "../constants";
 
-const NoteForm = ({ onClose }) => {
+const ContactForm = ({ onClose }) => {
   const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = () => {
@@ -86,4 +86,4 @@ const NoteForm = ({ onClose }) => {
   );
 };
 
-export default NoteForm;
+export default ContactForm;
