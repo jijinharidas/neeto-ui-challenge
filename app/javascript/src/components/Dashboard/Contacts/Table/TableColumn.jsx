@@ -3,7 +3,6 @@ import React from "react";
 import { MenuHorizontal } from "neetoicons";
 import { Typography, Avatar, Dropdown } from "neetoui";
 
-// import
 export const getContactTableColumnData = showAlert => [
   {
     title: "Name & Role",
