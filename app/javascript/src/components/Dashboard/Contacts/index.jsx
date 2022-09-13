@@ -4,11 +4,12 @@ import { Button, Pagination, Alert, Toastr } from "neetoui";
 import { Container, Header } from "neetoui/layouts";
 
 import MenuBar from "./MenuBar";
+import NewContactPane from "./NewContactPane";
 import Table from "./Table";
 
 const Contacts = () => {
   const [searchTerm, setSearchTerm] = useState("");
-  // const [showNewContactPane, setShowNewContactPane] = useState(false);
+  const [showNewContactPane, setShowNewContactPane] = useState(false);
   const [showDeleteAlert, setShowDeleteAlert] = useState(false);
 
   const handleDeleteAlert = () => {
@@ -31,7 +32,7 @@ const Contacts = () => {
             <Button
               icon="ri-add-line"
               label="Add Contacts"
-              // onClick={() => setShowNewContactPane(true)}
+              onClick={() => setShowNewContactPane(true)}
             />
           }
           searchProps={{
@@ -42,12 +43,7 @@ const Contacts = () => {
         />
         <Table showAlert={() => handleDeleteAlert()} />
         <div className="mt-8 mb-8 flex w-full flex-row justify-end">
-          <Pagination
-            count={30}
-            navigate={function noRefCheck() {}}
-            pageNo={1}
-            pageSize={9}
-          />
+          <Pagination count={30} navigate={() => {}} pageNo={1} pageSize={9} />
         </div>
         <Alert
           isOpen={showDeleteAlert}
@@ -55,6 +51,12 @@ const Contacts = () => {
           title="Delete Contact"
           onClose={() => setShowDeleteAlert(false)}
           onSubmit={() => handleSubmit()}
+        />
+        <NewContactPane
+          showPane={showNewContactPane}
+          onClose={() => {
+            setShowNewContactPane(false);
+          }}
         />
       </Container>
     </>

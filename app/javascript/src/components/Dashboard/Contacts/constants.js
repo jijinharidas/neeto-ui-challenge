@@ -1,3 +1,5 @@
+import * as yup from "yup";
+
 export const MENUBAR_BLOCKS = {
   main: [
     {
@@ -46,5 +48,29 @@ export const CONTACT_DETAILS = [
     role: "Owner",
     email: "alber@borer.com",
     created_at: "Feb 8, 2021",
+  },
+];
+
+export const CONTACTS_FORM_INITIAL_FORM_VALUES = {
+  firstname: "",
+  secondname: "",
+  email: "",
+  role: "",
+};
+
+export const CONTACTS_FORM_VALIDATION_SCHEMA = yup.object().shape({
+  firstname: yup.string().required("First name is required"),
+  lastname: yup.string().required("Second name is required"),
+  email: yup.string().required("Email is required"),
+});
+
+export const ROLES = [
+  {
+    label: "Admin",
+    value: "admin",
+  },
+  {
+    label: "Non-Admin",
+    value: "non_admin",
   },
 ];
