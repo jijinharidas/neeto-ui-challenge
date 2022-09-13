@@ -4,7 +4,7 @@ export const NOTES_FORM_INITIAL_FORM_VALUES = {
   title: "",
   description: "",
   role: null,
-  tags: null,
+  tags: [],
 };
 
 export const TAGS = [
@@ -66,7 +66,6 @@ export const NOTES_FORM_VALIDATION_SCHEMA = yup.object().shape({
           value: yup.number().oneOf(TAGS.map(tag => tag.value)),
         })
     )
-    .nullable()
     .min(1, "Tag is required")
     .required("Tag is required"),
 });
